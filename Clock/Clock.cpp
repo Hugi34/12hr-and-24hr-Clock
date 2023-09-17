@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -10,13 +11,12 @@ class Clock{
         int hour; //Clock hour.
         int minute; //Clock minute.
         int second; //Clock second.
-
         /**
          * Sets Clock hour.
          * @param set_hour Clock hour.
         */
-        void Clock::setHour(int set_hour){
-            hour = set_hour; //Set hour.
+        void setHour(int set_hour){
+            this->hour = set_hour; //Set hour.
         }
 
         
@@ -24,7 +24,7 @@ class Clock{
          * Sets Clock minute.
          * @param set_minute Clock minute.
         */
-        void Clock::setMinute(int set_minute){
+        void setMinute(int set_minute){
             minute = set_minute; //Set minute.
         }
 
@@ -32,15 +32,51 @@ class Clock{
          * Sets Clock second.
          * @param set_second Clock second.
         */
-        void Clock::setSecond(int set_second){
+        void setSecond(int set_second){
             second = set_second; //Set second.
+        }
+        
+        /**
+         * Adds Clock hour.
+        */
+        void addHour (){
+            this->hour += 1; //Add hour.
+        }
+
+        /**
+         * Adds Clock minute.
+        */
+        void addMinute (){
+            this->minute += 1; //Add minute.
+        }
+
+        /**
+         * Adds Clock second.
+        */
+        void addSecond (){
+            this->second += 1; //Add second.
         }
 
         /**
          * Displays Clock time.
         */
-        int Clock::displayTime(){
-            cout << hour << ":" << minute << ":" << second << endl; //Display time.
+        string twelveHourTime(){
+            std::string string_hour = std::to_string(this->hour); //Setting default hour to 12 hour time.
+            if (this-> hour > 12){ //If hour is greater than 12.
+                string_hour = std::to_string(this->hour - 12); //Set hour to 12 hour time.
+            }
+            std::string string_minute = std::to_string(this->minute); //Convert int minute to string.
+            std::string string_second = std::to_string(this->second); //Convert int second to string.
+
+            return (string_hour  + " : " + string_minute + " : " + string_second); //Display time.
+        }
+
+        string twentyFourHourTime(){
+            std::string string_hour = std::to_string(this->hour); //Convert int hour to string.
+            std::string string_minute = std::to_string(this->minute); //Convert int minute to string.
+            std::string string_second = std::to_string(this->second); //Convert int second to string.
+
+            return (string_hour  + " : " + string_minute + " : " + string_second); //Display time.
         }
 
 };

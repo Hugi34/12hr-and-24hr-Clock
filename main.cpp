@@ -1,16 +1,12 @@
-// C++ program to illustrate the digital
-// clock starting from the entered time
-  
-#include <iomanip>
 #include <iostream>
-#include <stdlib.h>
-#include <windows.h>
+#include <stdio.h>
 using namespace std;
 #include "./Clock/Clock.cpp"
-  
-// Driver Code
-int main()
-{
-    Clock clock;
-    clock.displayTime();
+
+int main() {
+    Clock clock; //Create Clock object.
+    std::cout << "*************" << endl;
+    std::cout << * << clock.twelveHourTime() << * << endl;
+
+    return 0;
 }
