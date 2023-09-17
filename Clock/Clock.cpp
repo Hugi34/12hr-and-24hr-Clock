@@ -1,16 +1,26 @@
+/*
+Hugo D Leyva
+CS-210
+09/16/2023
+Program 1
+This Class contains the clock parameters and functions.
+*/
+
+
+
 #include <iostream>
 #include <string>
 using namespace std;
 
 
 /**
- * Clock class
+ * Clock class.
 */
 class Clock{
     public: 
-        int hour = 0; //Clock hour.
-        int minute = 0; //Clock minute.
-        int second = 0; //Clock second.
+        int hour = 0; //Clock hour default 0.
+        int minute = 0; //Clock minute default 0.
+        int second = 0; //Clock second default 0.
         /**
          * Sets Clock hour.
          * @param set_hour Clock hour.
@@ -58,7 +68,7 @@ class Clock{
         }
 
         /**
-         * Displays Clock time.
+         * Displays 12-hr clock time.
         */
         string twelveHourTime(){
             std::string string_hour = std::to_string(this->hour); //Setting default hour to 12 hour time.
@@ -67,26 +77,30 @@ class Clock{
 
             //Logic for clock.
             if (this->second >= 60){ //If minute is greater than 60.
-                this->second = this->second - 60; //Reseting minute.
-                this->minute = this->minute + 1; //Adding hour.
-                string_second = std::to_string(this->second);
-                string_minute = std::to_string(this->minute);
+                this->second = this->second % 60; //Reset second count.
+                this->minute = this->minute + 1; //Add hour.
+                string_second = std::to_string(this->second); //Convert int second to string.
+                string_minute = std::to_string(this->minute); //Convert int minute to string.
             }
            
             if (this->minute >= 60){ //If minute is greater than 60.
-                this->minute = this->minute - 60; //Reseting minute.
-                this->hour = this->hour + 1; //Adding hour.
-                string_minute = std::to_string(this->minute);
-                string_hour = std::to_string(this->hour);
+                this->minute = this->minute % 60; //Reset minute count.
+                this->hour = this->hour + 1; //Add hour.
+                string_minute = std::to_string(this->minute); //Convert int minute to string.
+                string_hour = std::to_string(this->hour); //Convert int hour to string.
             }
 
             if (this-> hour > 12){ //If hour is greater than 12.
-                string_hour = std::to_string(this->hour % 12); //Set hour to 12 hour time.
+                string_hour = std::to_string(this->hour % 12); //Rest 12-hr time
             }
 
             return (string_hour  + " : " + string_minute + " : " + string_second); //Display time.
         }
 
+
+        /**
+         * Displays 24-hr clock time.
+        */
         string twentyFourHourTime(){
             std::string string_hour = std::to_string(this->hour); //Setting default hour to 12 hour time.
             std::string string_minute = std::to_string(this->minute); //Convert int minute to string.
@@ -94,22 +108,22 @@ class Clock{
 
             //Logic for clock.
             if (this->second >= 60){ //If minute is greater than 60.
-                this->second = this->second - 60; //Reseting minute.
-                this->minute = this->minute + 1; //Adding hour.
-                string_second = std::to_string(this->second);
-                string_minute = std::to_string(this->minute);
+                this->second = this->second % 60; //Reset second count.
+                this->minute = this->minute + 1; //Add hour.
+                string_second = std::to_string(this->second); //Convert int second to string.
+                string_minute = std::to_string(this->minute); //Convert int minute to string.
 
             }
            
             if (this->minute >= 60){ //If minute is greater than 60.
-                this->minute = this->minute - 60; //Reseting minute.
+                this->minute = this->minute % 60; //Reset minute count.
                 this->hour = this->hour + 1; //Adding hour.
-                string_minute = std::to_string(this->minute);
-                string_hour = std::to_string(this->hour);
+                string_minute = std::to_string(this->minute); //Convert int minute to string.
+                string_hour = std::to_string(this->hour); //Convert int hour to string.
             }
 
             if (this-> hour >= 24){ //If hour is greater than 12.
-                string_hour = std::to_string(this->hour % 24); //Set hour to 12 hour time.
+                string_hour = std::to_string(this->hour % 24); //Reset 24-hr time
             }
 
             return (string_hour  + " : " + string_minute + " : " + string_second); //Display time.

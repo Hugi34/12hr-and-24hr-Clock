@@ -1,3 +1,15 @@
+/*
+Hugo D Leyva
+CS-210
+09/16/2023
+Program 1
+This Program will take a time from the user and display a clock (12-hr and 24hr) that allows
+ the user to add hours, minutes, and seconds to the clock.
+*/
+
+
+
+
 #include <iostream>
 #include <stdio.h>
 using namespace std;
@@ -6,27 +18,24 @@ using namespace std;
 int main() {
     Clock clock; //Create Clock object.
 
-    //Prompting user for hour.
+    //Pre loop prompt user for time.
     std::cout << "Enter hour: "; //Prompt user for hour.
     int hour; //Variable to store hour.
     std :: cin >> hour; //Get hour from user.
     clock.setHour(hour); //Set hour.
 
-    //Prompting user for minute.
     std::cout << "Enter Minute: "; //Prompt user for minute.
     int minute; //Variable to store minute.
     std :: cin >> minute; //Get minute from user.
     clock.setMinute(minute); //Set minute.
 
-    //Prompting user for second.
     std::cout << "Enter Second: "; //Prompt user for second.
     int second; //Variable to store second.
     std :: cin >> second; //Get second from user.
     clock.setSecond(second); //Set second.
 
 
-    bool run = true; //Parameter to run while loop.
-    while (run = true){
+    while (true){ //While loop to display clock and options.
 
 
 
@@ -60,8 +69,7 @@ int main() {
             clock.addSecond(); //Add second.
             break; //Break from switch statement.
         case 4: //If input is 4.
-            run = false; //Set run to false.
-            break; //Break from switch statement.
+            exit(0); //Exit program.
         default: //If input is not 1, 2, 3, or 4.
             std::cout << "Invalid input." << endl; //Display invalid input.
             break; //Break from switch statement.
@@ -69,5 +77,5 @@ int main() {
     }
 
 
-    return 0;
+    return 0; //Return 0 to end program.
 }
