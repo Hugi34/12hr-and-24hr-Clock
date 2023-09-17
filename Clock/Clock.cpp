@@ -81,7 +81,7 @@ class Clock{
             }
 
             if (this-> hour > 12){ //If hour is greater than 12.
-                string_hour = std::to_string(this->hour - 12); //Set hour to 12 hour time.
+                string_hour = std::to_string(this->hour % 12); //Set hour to 12 hour time.
             }
 
             return (string_hour  + " : " + string_minute + " : " + string_second); //Display time.
@@ -109,7 +109,7 @@ class Clock{
             }
 
             if (this-> hour >= 24){ //If hour is greater than 12.
-                string_hour = std::to_string(this->hour - 24); //Set hour to 12 hour time.
+                string_hour = std::to_string(this->hour % 24); //Set hour to 12 hour time.
             }
 
             return (string_hour  + " : " + string_minute + " : " + string_second); //Display time.
