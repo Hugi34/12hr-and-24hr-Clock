@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Clock.h"
+#include "Clock.cpp"
 using namespace std;
 
 int setTime(){
